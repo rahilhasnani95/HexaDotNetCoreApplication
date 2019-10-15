@@ -11,6 +11,9 @@ namespace HWRestaurant.Web.Pages.Restaurants
 {
     public class DetailsModel : PageModel
     {
+        [TempData]
+        public string Message { get; set; }
+
         private readonly IRestaurantData restaurantData;
         public Restaurant Restaurant { get; set; }
 
