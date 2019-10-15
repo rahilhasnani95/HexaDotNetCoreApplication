@@ -6,9 +6,13 @@
 
 <h2>Restaurants List</h2>
 
-<repeat count="5">
-    <h4>I will be repeated!! @DateTime.UtcNow.Year</h4>
-</repeat>
+@if (Model.Message2 != null)
+{
+    <div class="alert alert-danger">@Model.Message2</div>
+}
+@*<repeat count="5">
+        <h4>I will be repeated!! @DateTime.UtcNow.Year</h4>
+    </repeat>*@
 
 <form method="get">
     <div class="form-group">
@@ -25,33 +29,14 @@
 </form>
 
 
-<table class="table">
     @foreach (var restaurant in Model.Restaurants)
     {
-        <tr>
-            <td>@restaurant.Name</td>
-            <td>@restaurant.Location</td>
-            <td>@restaurant.Cuisine</td>
-            <td>
-                <a class="btn btn-lg"
-                   asp-page="./Details"
-                   asp-route-restaurantId="@restaurant.ID">
-                    <i class="glyphicon glyphicon-zoom-in"></i>
-                </a>
-
-                <a class="btn btn-lg"
-                   asp-page="./Edit"
-                   asp-route-restaurantId="@restaurant.ID">
-                    <i class="glyphicon glyphicon-edit"></i>
-                </a>
-            </td>
-        </tr>
-
+        //it will come from partial view
+        <partial name="_Summary" model="restaurant" />
     }
-</table>
 
 <a asp-page="./Edit" class="btn btn-primary">Add New</a>
 
-@section footer {
+@*@section footer {
     <div>@Model.Message</div>
-}
+}*@

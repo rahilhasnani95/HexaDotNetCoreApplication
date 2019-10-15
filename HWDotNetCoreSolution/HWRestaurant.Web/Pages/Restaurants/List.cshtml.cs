@@ -15,9 +15,13 @@ namespace HWRestaurant.Web.Pages.Restaurants
         private readonly IConfiguration config;
         private readonly IRestaurantData restaurantData;
 
+
+
         [BindProperty(SupportsGet = true)]
         public string SearchTerm { get; set; }
 
+        [TempData]
+        public string Message2 { get; set; }
         public string Message { get; set; }
 
         public IEnumerable<Restaurant> Restaurants { get; set; }
