@@ -62,5 +62,9 @@ namespace HWRestaurant.Data
            return db.SaveChanges();
         }
 
+        public int GetCountOfRestaurants()
+        {
+            return db.Restaurants.Count();
+        }
     }
 }
